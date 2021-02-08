@@ -27,13 +27,13 @@ public class CreatingStreams {
         Stream<Double> randoms = Stream.generate(Math::random);
         show("randoms", randoms);
 
-        Stream<BigInteger> integers = Stream.iterate(BigInteger.ONE, n->n.add(BigInteger.ONE));
+        Stream<BigInteger> integers = Stream.iterate(BigInteger.ONE, n -> n.add(BigInteger.ONE));
         show("integers", integers);
 
         Stream<String> wordsAnotherWay = Pattern.compile("\\PL+").splitAsStream(contents);
         show("wordsAnotherWay", wordsAnotherWay);
 
-        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)){
+        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)) {
             show("lines", lines);
         }
     }
@@ -41,11 +41,12 @@ public class CreatingStreams {
     public static <T> void show(String title, Stream<T> stream) {
         final int SIZE = 10;
         List<T> firstElements = stream.limit(SIZE + 1).collect(Collectors.toList());
-        System.out.print(title+": ");
+        System.out.print(title + ": ");
 
         for (int i = 0; i < firstElements.size(); i++) {
-            if (i > 0) System.out.print(", ");
-            System.out.print(i<SIZE ? firstElements.get(i) : "...");
+            if (i > 0)
+                System.out.print(", ");
+            System.out.print(i < SIZE ? firstElements.get(i) : "...");
         }
         System.out.println();
     }

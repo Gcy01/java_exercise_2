@@ -14,19 +14,20 @@ public class CountLongWords {
         long count = 0;
         long t = System.currentTimeMillis();
         for (String w : words) {
-            if (w.length() > 12) count++;
+            if (w.length() > 12)
+                count++;
         }
         System.out.println(count);
-        System.out.println((System.currentTimeMillis())-t);
+        System.out.println((System.currentTimeMillis()) - t);
         //流
         t = System.currentTimeMillis();
-        count = words.stream().filter(s -> s.length()>12).count();
+        count = words.stream().filter(s -> s.length() > 12).count();
         System.out.println(count);
-        System.out.println((System.currentTimeMillis())-t);
+        System.out.println((System.currentTimeMillis()) - t);
         //并行流
         t = System.currentTimeMillis();
-        count = words.parallelStream().filter(s -> s.length()>12).count();
+        count = words.parallelStream().filter(s -> s.length() > 12).count();
         System.out.println(count);
-        System.out.println((System.currentTimeMillis())-t);
+        System.out.println((System.currentTimeMillis()) - t);
     }
 }

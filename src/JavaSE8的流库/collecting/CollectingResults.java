@@ -30,9 +30,9 @@ public class CollectingResults {
         System.out.println(numbers);
 
         try {
-            Integer number = (Integer) numbers[0];
+            Integer number = (Integer)numbers[0];
             System.out.println(number);
-            System.out.println((Integer[]) numbers);
+            System.out.println((Integer[])numbers);
         } catch (Exception exception) {
             System.out.println(exception);
         }
